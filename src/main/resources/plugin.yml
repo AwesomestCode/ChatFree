@@ -1,0 +1,4 @@
+name: ChatFree
+version: "1.0"
+main: to.us.awesomest.chatfree.ChatFree
+description: "A lightweight chat removal plugin"

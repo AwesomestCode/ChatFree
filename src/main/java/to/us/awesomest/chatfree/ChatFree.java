@@ -12,8 +12,15 @@ public class ChatFree extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
     }
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onChat(AsyncPlayerChatEvent event) {
-        event.setCancelled(true);
+        try {
+            // Try to remove all recipients
+            event.getRecipients().clear();
+        } catch(UnsupportedOperationException e) {
+            // If that fails cancel the event
+            event.setCancelled(true);
+        }
     }
 }
